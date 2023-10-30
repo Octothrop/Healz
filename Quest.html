@@ -4,8 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="quest.css">
     <title>Questionnaire</title>
+    <link rel="stylesheet" href="quest.css">
 </head>
 
 <body>
@@ -121,7 +121,7 @@
         </label>
         <br>
         <br>
-        <button onclick="showResults()">Show Results</button>
+        <button class="button" onclick="showResults()"><span class="new">Show Results</span></button>
     </div>
 
     <div id="results">
@@ -129,7 +129,7 @@
         <p>Agreed: <span id="agreedCount">0</span></p>
         <p>Disagreed: <span id="disagreedCount">0</span></p>
         <p>Neutral: <span id="neutralCount">0</span></p>
-        <p> <span id="output-message">0</span></p>
+        <p> <span id="output-message"></span></p>
     </div>
 
     <script>
