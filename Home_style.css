@@ -139,3 +139,45 @@ h3 {
 .card a{
   color: black;
 }
+/* Define a CSS class for the container */
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+/* Define a CSS class for the cards */
+.card {
+  flex: 1;
+  max-width: 300px; /* Adjust the max-width as needed */
+
+  margin: 10px;
+  padding: 10px;
+  box-sizing: border-box;
+  background-color: transparent;
+}
+
+.card h3 {
+  font-size: 20px;
+  margin: 0;
+}
+
+.card p {
+  margin: 10px 0;
+}
+
+.card a {
+  display: block; /* Makes "Learn more" a block element */
+  text-align: center;
+  background-color: transparent;
+  color: black;
+  padding: 5px 10px;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: transform 0.3s;
+
+}
+
+.card a:hover {
+  transform: scale(1.1);
+}
