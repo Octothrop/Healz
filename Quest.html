@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="quest.css">
+    <title>Questionnaire</title>
+</head>
+
+<body>
+    <div id="questionnaire">
+        <h2>1: I often feel very lonely</h2>
+        <label>
+            <input type="radio" name="question1" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question1" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question1" value="Neutral"> Neutral
+        </label>
+
+        <h2>2: It makes me very anxious when I have to be alone with my own thoughts</h2>
+        <label>
+            <input type="radio" name="question2" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question2" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question2" value="Neutral"> Neutral
+        </label>
+
+        <h2>3: Thinking of people leaving me scares me</h2>
+        <label>
+            <input type="radio" name="question3" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question3" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question3" value="Neutral"> Neutral
+        </label>
+
+        <h2>4: I would rather stay at home than go out</h2>
+        <label>
+            <input type="radio" name="question4" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question4" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question4" value="Neutral"> Neutral
+        </label>
+
+        <h2>5: Little or no interest in doing normal day to day things</h2>
+        <label>
+            <input type="radio" name="question5" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question5" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question5" value="Neutral"> Neutral
+        </label>
+
+        <h2>6: Trouble falling asleep or sleeping way too much</h2>
+        <label>
+            <input type="radio" name="question6" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question6" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question6" value="Neutral"> Neutral
+        </label>
+
+        <h2>7: Feeling tired or having little energy</h2>
+        <label>
+            <input type="radio" name="question7" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question7" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question7" value="Neutral"> Neutral
+        </label>
+
+        <h2>8: Feeling bad about yourself and having the constant fear you let your loved ones down</h2>
+        <label>
+            <input type="radio" name="question8" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question8" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question8" value="Neutral"> Neutral
+        </label>
+
+        <h2>9: You feellike you are moving/speaking slowly which is noticeable</h2>
+        <label>
+            <input type="radio" name="question9" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question9" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question9" value="Neutral"> Neutral
+        </label>
+
+        <h2>10: Thoughts that you would be better off dead or of hurting yourself</h2>
+        <label>
+            <input type="radio" name="question10" value="Agreed"> Agreed
+        </label>
+        <label>
+            <input type="radio" name="question10" value="Disagreed"> Disagreed
+        </label>
+        <label>
+            <input type="radio" name="question10" value="Neutral"> Neutral
+        </label>
+        <br>
+        <br>
+        <button onclick="showResults()">Show Results</button>
+    </div>
+
+    <div id="results">
+        <h2>Survey Results:</h2>
+        <p>Agreed: <span id="agreedCount">0</span></p>
+        <p>Disagreed: <span id="disagreedCount">0</span></p>
+        <p>Neutral: <span id="neutralCount">0</span></p>
+        <p> <span id="output-message">0</span></p>
+    </div>
+
+    <script>
+        function showResults() {
+            var agreedCount = 0;
+            var disagreedCount = 0;
+            var neutralCount = 0;
+
+            // Get the selected answers for each question
+            for (var i = 1; i <= 10; i++) {
+                var questionName = 'question' + i;
+                var selectedAnswer = document.querySelector('input[name="' + questionName + '"]:checked');
+
+                if (selectedAnswer) {
+                    if (selectedAnswer.value === 'Agreed') {
+                        agreedCount++;
+                    } else if (selectedAnswer.value === 'Disagreed') {
+                        disagreedCount++;
+                    } else if (selectedAnswer.value === 'Neutral') {
+                        neutralCount++;
+                    }
+                }
+            }
+
+            // Display the results
+            document.getElementById('agreedCount').textContent = agreedCount;
+            document.getElementById('disagreedCount').textContent = disagreedCount;
+            document.getElementById('neutralCount').textContent = neutralCount;
+
+            var highestCount;
+            var highestOption;
+
+            if (agreedCount > disagreedCount && agreedCount > neutralCount) {
+                 highestCount = agreedCount;
+                 highestOption = 'Agreed';
+            } else if (disagreedCount > agreedCount && disagreedCount > neutralCount) {
+                 highestCount = disagreedCount;
+                 highestOption = 'Disagreed';
+            } else if (neutralCount > agreedCount && neutralCount > disagreedCount) {
+                 highestCount = neutralCount;
+                 highestOption = 'Neutral';
+            } else {
+                 highestCount = agreedCount; // If counts are equal, default to Agreed
+                 highestOption = 'Agreed';
+                }
+            
+                var outputMessage = '';
+
+              if (highestOption === 'Agreed') {
+                    outputMessage = 'Your mental health is deteriorating.';
+            } else if (highestOption === 'Neutral') {
+                    outputMessage = 'Do something that makes you happy.';
+            } else if (highestOption === 'Disagreed') {
+                    outputMessage = 'I am glad you are happy.';
+        }
+
+// Update the content of an HTML element with id "output-message"
+             document.getElementById('output-message').textContent = outputMessage;
+            }
+    </script>
+</body>
+
+</html>
