@@ -1,0 +1,113 @@
+* {
+  margin: 0;
+}
+
+body,
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.bubble-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-image: url(https://wallpapercave.com/wp/wp7353204.jpg);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubbles {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  flex-wrap: wrap;
+  z-index: 1;
+  pointer-events: none;
+}
+
+.bubbles span {
+  width: 30px;
+  height: 30px;
+  background-color: #d7dc4f;
+  margin: 0.4px;
+  border-radius: 50%;
+  box-shadow:
+    0 0 0 10px #cedc4f44,
+    0 0 50px #d7dc4f,
+    0 0 100px #d7dc4f;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(225s / var(--i));
+  position: relative;
+}
+
+.bubbles span:nth-child(even) {
+  background: #aa87e7e3;
+  box-shadow:
+    0 0 0 10px #68568442,
+    0 0 50px #aa87e7e3,
+    0 0 100px #aa87e7e3;
+  animation: animate 15s linear infinite;
+  animation-duration: calc(125s / var(--i));
+}
+
+@keyframes animate {
+  0% {
+    transform: translateY(100vh) scale(0);
+  }
+  100% {
+    transform: translateY(-10vh) scale(0.4);
+  }
+}
+
+.scrolling-container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  width: 100vw;
+  pointer-events: auto;
+}
+
+.scrolling-container iframe {
+  margin-top: 60px;
+  margin-left: 30px;
+  width: 300px;
+  height: 380px;
+  display: inline-block;
+  background: #222;
+  border-radius: 12px;
+}
+
+.music-float {
+  position: fixed;
+  bottom: 24px;
+  left: 24px;
+  width: 56px;
+  height: 56px;
+  background: #ffffff;
+  border-radius: 50%;
+  box-shadow: 0 2px 8px #0002;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 1000;
+  transition: box-shadow 0.2s;
+}
+.music-float:hover {
+  box-shadow: 0 4px 16px #0003;
+}
+.music-float img {
+  width: 36px;
+  height: 36px;
+  display: block;
+}
